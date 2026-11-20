@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One Story A Day – Mind Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffaf2;--ink:#2b1a10;--soft:#6d594b;--line:#e6d8c6;--box:#fff;--hi:#c2410c;--hi2:#15803d;--btn:#c2410c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1712;--ink:#f6ece0;--soft:#c9b6a5;--line:#3f322a;--box:#2a211b;--hi:#fb923c;--hi2:#a3d65c;--btn:#ea580c}}
+:root[data-theme="dark"]{--bg:#1d1712;--ink:#f6ece0;--soft:#c9b6a5;--line:#3f322a;--box:#2a211b;--hi:#fb923c;--hi2:#a3d65c;--btn:#ea580c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Montserrat,Arial,sans-serif}
+main{max-width:840px;margin:0 auto;padding:18px 12px 40px}
+h1{font:800 clamp(20px,4.4vw,28px)/1.25 Montserrat,Arial,sans-serif;text-align:center;margin:6px 0 4px}
+.sub{text-align:center;color:var(--soft);font-size:13px;margin:0 0 12px}
+.nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:6px}
+.nav a{width:34px;height:34px;line-height:34px;text-align:center;border-radius:50%;background:var(--box);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:13px;font-weight:700}
+.nav a.on{background:var(--btn);border-color:var(--btn);color:#fff}
+.box{border:1px solid var(--line);background:var(--box);border-radius:16px;padding:14px 16px;margin:16px 0 0}
+.box h2{font:800 17px Montserrat,Arial,sans-serif;margin:0 0 8px}
+.box p{margin:0;line-height:1.85;font-size:16px}
+.box b{color:var(--hi)}
+.audio{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}
+.audio select,.audio button{font:600 13px Montserrat,Arial,sans-serif;border-radius:20px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:7px 12px}
+.audio select{max-width:100%;flex:1 1 200px}
+.audio button{background:var(--btn);border-color:var(--btn);color:#fff;cursor:pointer}
+.audio button.alt{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.am{font-size:12.5px;color:var(--soft);margin:4px 0 0!important;line-height:1.4!important}
+.sc{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--soft);font-weight:700}
+td:nth-child(3){color:var(--soft)}
+td:nth-child(3) b{color:var(--hi2)}
+footer{text-align:center;color:var(--soft);font-size:13px;margin-top:26px}
+footer b{color:var(--ink)}
+/* ---- mind map ---- */
+.map{position:relative;container-type:inline-size;width:100%;aspect-ratio:780/600;margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background-color:var(--mbg)}
+.map.grid{background-image:linear-gradient(var(--mg) 1.5px,transparent 1.5px),linear-gradient(90deg,var(--mg) 1.5px,transparent 1.5px);background-size:5% 6.5%}
+.map.dots{background-image:radial-gradient(var(--mg) 2.5px,transparent 3px);background-size:3.4% 4.4%}
+.map svg.ar{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ln{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.n,.t{position:absolute;left:var(--l);top:var(--t);width:var(--w);height:var(--h);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.n{background:var(--c);color:var(--tx);padding:0 9%}
+.n h3{margin:0 0 .7cqw;font:800 2.05cqw/1.15 Montserrat,Arial,sans-serif}
+.n p{margin:0;font:700 2.3cqw/1.3 Montserrat,Arial,sans-serif;text-wrap:balance}
+.t{color:var(--ct);padding:0 2cqw}
+.t small{font:700 1.9cqw/1.2 Montserrat,Arial,sans-serif;opacity:.9}
+.t strong{font:800 3.1cqw/1.12 Montserrat,Arial,sans-serif;text-wrap:balance}
+.t.long strong{font-size:2.55cqw}
+.tt-pill{background:var(--tc);border-radius:5cqw;box-shadow:0 0 0 .5cqw rgba(0,0,0,.18)}
+.tt-badge{background:var(--tc);border-radius:50%;box-shadow:0 0 0 .6cqw var(--bd)}
+.tt-blob{background:var(--tc);border-radius:48% 52% 44% 56% / 55% 46% 54% 45%}
+.tt-plain{color:var(--pt)}
+.sh-blob.v0{border-radius:46% 54% 38% 62% / 52% 40% 60% 48%}.sh-blob.v1{border-radius:60% 40% 55% 45% / 42% 58% 42% 58%}.sh-blob.v2{border-radius:40% 60% 66% 34% / 58% 46% 54% 42%}.sh-blob.v3{border-radius:52% 48% 40% 60% / 38% 62% 38% 62%}.sh-blob.v4{border-radius:36% 64% 52% 48% / 50% 36% 64% 50%}.sh-blob.v5{border-radius:58% 42% 44% 56% / 62% 48% 52% 38%}
+.sh-wobble{padding:0 6%}
+.sh-wobble.v0{border-radius:16% 24% 12% 28% / 26% 14% 28% 16%}.sh-wobble.v1{border-radius:26% 12% 24% 14% / 14% 28% 16% 26%}.sh-wobble.v2{border-radius:12% 28% 18% 24% / 22% 18% 30% 14%}.sh-wobble.v3{border-radius:24% 16% 28% 12% / 16% 26% 12% 28%}.sh-wobble.v4{border-radius:18% 26% 14% 22% / 28% 12% 24% 18%}.sh-wobble.v5{border-radius:28% 14% 22% 16% / 14% 24% 18% 30%}
+.sh-arch{border-radius:50% 50% 8% 8% / 62% 62% 10% 10%;border:.6cqw solid var(--bd);padding:3% 7% 0}
+.sh-hex{clip-path:polygon(24% 0,76% 0,100% 50%,76% 100%,24% 100%,0 50%);padding:0 15%}
+.sh-cloud{padding:0 13%}
+.sh-cloud::before{content:"";position:absolute;inset:4.5%;background:var(--in);clip-path:inherit;z-index:0}
+.sh-cloud>*{position:relative;z-index:1}
+.sh-cloud.v0{clip-path:url(#cA)}.sh-cloud.v1{clip-path:url(#cB)}.sh-cloud.v2{clip-path:url(#cC)}.sh-cloud.v3{clip-path:url(#cD)}.sh-cloud.v4{clip-path:url(#cA)}.sh-cloud.v5{clip-path:url(#cB)}
+@media (max-width:640px){
+.map{aspect-ratio:auto;display:flex;flex-direction:column;gap:10px;padding:12px;background-image:none!important}
+.map svg.ar{display:none}
+.n,.t{position:static;width:100%;height:auto;clip-path:none!important;border-radius:22px!important;padding:14px 16px!important}
+.sh-cloud{background:var(--in);border:5px solid var(--c);color:var(--tx)}
+.sh-cloud::before{display:none}
+.n h3{font-size:15px}.n p{font-size:18px}
+.t strong,.t.long strong{font-size:26px}.t small{font-size:13px}
+.tt-badge{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<clipPath id="cA" clipPathUnits="objectBoundingBox"><path d="M.2 .9C.05 .9 0 .7 .1 .58C.02 .4 .15 .22 .3 .3C.34 .08 .62 .04 .7 .24C.88 .2 1 .42 .92 .58C1 .75 .92 .9 .8 .9Z"/></clipPath>
+<clipPath id="cB" clipPathUnits="objectBoundingBox"><path d="M.15 .86C0 .84 -.01 .6 .1 .52C.05 .32 .22 .2 .34 .3C.4 .1 .6 .08 .66 .26C.75 .1 .98 .2 .93 .44C1.02 .56 .98 .84 .82 .86C.6 .93 .35 .93 .15 .86Z"/></clipPath>
+<clipPath id="cC" clipPathUnits="objectBoundingBox"><path d="M.18 .88C.02 .88 -.02 .66 .08 .54C0 .36 .16 .2 .3 .28C.38 .08 .6 .1 .66 .26C.84 .12 1 .3 .92 .5C1.02 .66 .92 .9 .76 .88C.56 .96 .36 .94 .18 .88Z"/></clipPath>
+<clipPath id="cD" clipPathUnits="objectBoundingBox"><path d="M.22 .9C.06 .92 -.02 .72 .08 .6C.04 .4 .2 .26 .32 .34C.38 .12 .64 .1 .7 .3C.86 .22 1 .4 .94 .58C1 .76 .88 .92 .72 .88C.54 .94 .38 .94 .22 .9Z"/></clipPath>
+</defs></svg>
+<main>
+<h1 id="ttl"></h1>
+<p class="sub">One Story A Day · Mind Map thuyết trình · Đọc bài → học mẫu câu → nói theo mindmap</p>
+<div class="nav" id="nav"></div>
+
+<section class="box"><h2>Full story · Bài đã rewrite</h2>
+<div class="audio">
+<select id="voice" aria-label="Voice / Chọn giọng"></select>
+<select id="rate" aria-label="Speed"><option value="0.7">🐢 Chậm</option><option value="0.85" selected>Vừa</option><option value="1">Nhanh</option></select>
+<button id="play">▶ Nghe</button><button id="pause" class="alt">⏸</button><button id="stop" class="alt">■</button>
+</div>
+<p id="story"></p>
+<p class="am" id="am"></p>
+</section>
+
+<section class="box"><h2>Say it like this · Mẫu câu thuyết trình</h2><div class="sc"><table>
+<tr><th>#</th><th>Sentence frame</th><th>Từ mở rộng (swap words)</th></tr>
+<tbody id="rows"></tbody></table></div></section>
+
+<section class="map" id="map" aria-label="Mind map"></section>
+<footer>One Story A Day · Mind Map<br>Người dựng bài: <b>Lê Hạnh LIY</b></footer>
+</main>
+<script>
+const DAYS=[
+{t:"The Sky Is Blue!",s:[
+["Who & What","My {uncle} sends me a {photo}.","uncle · photo","uncle→aunt, grandpa;photo→picture, postcard"],
+["In the Photo","In the photo, there is a {blue} sky and white {clouds}.","blue sky · white clouds","blue→clear, bright;clouds→sunshine, birds"],
+["Feeling","My uncle says, “I am so {happy} to see the blue sky!”","happy","happy→glad, cheerful, delighted"],
+["Question","I do not {understand}. I ask, “Is the sky not always blue?”","do not understand","understand→get it, know"],
+["Reason","He says, “No. In my {city}, the sky is often {grey} because there are too many {cars}.”","city · grey sky · cars","city→town;grey→cloudy, dark;cars→motorbikes, buses"],
+["Ending","Now I know why he is so {excited}!","excited","excited→thrilled, overjoyed, pleased"]]},
+{t:"Fruit or Vegetables?",s:[
+["Mac","{Mac} loves {vegetables}, but he does not enjoy {fruit}.","loves vegetables · no fruit","loves→likes, enjoys;vegetables→greens, salad;fruit→berries, melon"],
+["Lunch","For {lunch}, he has peas, beans and carrots.","peas · beans · carrots","lunch→dinner, breakfast;peas, beans, carrots→corn, tomatoes, potatoes"],
+["Kim","{Kim} is Mac’s {opposite}.","Mac’s opposite","opposite→different from Mac"],
+["Kim Eats","She likes {apples} and {bananas}, but she does not eat {green food}.","apples · bananas · no green food","apples, bananas→oranges, grapes, mangoes;green food→green vegetables"],
+["Rachel","Their friend Rachel says, “In some places, people have no food and feel {hungry}.”","no food · hungry","hungry→very hungry, sad;people→children, families"],
+["Lesson","Then she adds, “Remember this, and you will see that all food is {good}!”","all food is good","good→great, healthy, important"]]},
+{t:"Report Card",s:[
+["Pat","Pat {stopped} his {work} and came out of his {office}.","stopped work · left office","stopped→finished, left;work→job, writing;office→room, workplace"],
+["Friends","He wanted to see what his {friends} were doing in the next {room}.","friends · next room","friends→classmates, workmates;room→office, class"],
+["Mother","He told them that his {mother} is 95 years old and still keeps his {kindergarten} report card.","mother · 95 years · kindergarten report card","mother→mom, grandma;kindergarten→school"],
+["Question","One friend asked, “What does it {say}?”","“What does it say?”","say→show, tell"],
+["Joke","Pat answered, “It says, Stop visiting your {neighbours}!”","Stop visiting your neighbours!","neighbours→friends, classmates"]]},
+{t:"Tall Tom",s:[
+["Tom","{Tom} is a very {tall} boy.","very tall boy","very tall→really tall, so tall;boy→student, kid"],
+["Compare","He is {taller} than every {kid} in our class, and he is even taller than our teacher.","taller than every kid · taller than teacher","kid→student, classmate"],
+["Game","Today, our teacher {asked} us to play a {game} called Reach High.","game · Reach High","asked→told, invited;game→activity"],
+["Result","Tom {lifted} his hand up. All the kids {jumped} as high as they could, but no one could {reach} his hand.","hand up · no one can reach","lifted→raised;jumped→leaped, tried;reach→touch, catch"]]},
+{t:"Basketball Is Fun",s:[
+["Gift","For my {birthday}, my {uncle} gave me a {basketball}.","birthday · uncle · basketball","birthday→party;uncle→aunt, dad;basketball→football, volleyball"],
+["Learn","He taught me how to {bounce} it.","bounce the ball","taught→showed;bounce→dribble, throw"],
+["Practice","At {first}, I could bounce the ball only a few {times}. After a lot of {practice}, I could bounce it one {hundred} times!","a few times → one hundred","first→the beginning;practice→training;hundred→fifty, two hundred"],
+["Wish","I was so {excited}. Now I {wish} I could put the ball in the {net}!","excited · ball in the net","excited→happy, proud;wish→hope;net→hoop, basket"]]},
+{t:"A Picture for Dad",s:[
+["Gift","For my dad’s {birthday}, I {painted} a picture of him. It was the {first} time I drew him.","dad’s birthday · first picture","birthday→party;painted→drew, made;first→new"],
+["Worry","At the party, I was {scared} to give it to him because it was not very {good}.","scared · not very good","scared→afraid, nervous;good→nice, beautiful"],
+["Dad Likes","But my dad {liked} it.","dad liked it","liked→loved, enjoyed"],
+["Wall","He put it up on the {wall} and said, “It {looks} just like me!”","on the wall · “just like me!”","wall→door, window;looks→seems"]]},
+{t:"Many Kinds of Milk",s:[
+["Class","At {school}, Joey’s {teacher} says that {milk} is good for us and helps us grow {strong}.","school · teacher · milk","school→class;milk→juice;strong→healthy, tall"],
+["Question","She asks where milk comes from. All the children say, “From {cows}!”","where milk comes from · cows","cows→goats, buffaloes"],
+["Other Milk","The teacher says, “Yes, but in other parts of the {world}, people also drink milk from {sheep}, horses and camels.”","world · sheep · horses · camels","world→countries;sheep→goats;horses→donkeys"],
+["Joey","Joey is {surprised}. He learns something {new}!","surprised · learns something new","surprised→amazed, shocked;new→interesting"]]},
+{t:"Colours",s:[
+["Argument","One day, Red and {Blue} were {arguing} about which colour was the best.","Red & Blue · arguing","arguing→fighting, talking;colour→paint"],
+["Red","Red said, “I get all the {attention}!”","all the attention","attention→love, praise"],
+["Blue","Blue said, “I am the colour of the {sea}!”","colour of the sea","sea→sky, ocean"],
+["Surprise","Suddenly, red {spilled} onto blue, and {purple} was {born}.","spilled · purple was born","spilled→dropped, fell;born→made"],
+["Agree","From then on, they both {agreed} that purple was their {favourite} colour.","agreed · favourite colour","agreed→said;favourite→best"]]},
+{t:"A Windy Christmas",s:[
+["Christmas","This year, {Christmas} was very {different}.","Christmas · different","different→special, strange"],
+["No Snow","There was no {snow} or {ice} on Christmas Day.","no snow · no ice","snow→rain;ice→cold"],
+["Windy","It was a {windy} day. The wind was so {strong} that I could not {walk} on the street, so I had to {run}!","windy · cannot walk · run","windy→stormy;strong→powerful;walk→stand"],
+["Home","The wind pushed me all the way {home}.","pushed me home","home→to school"],
+["Santa","I think it pushed {Santa} Claus home too.","Santa Claus too","Santa→Father Christmas"]]},
+{t:"Everything Is New!",s:[
+["Baby","When the first {baby} is born, everything is {new}.","first baby · everything new","baby→child;new→different"],
+["Parents","There is a new {mother} and a new {father}.","new mother · new father","mother→mom, mum;father→dad"],
+["Family","There is also a new {grandfather} and {grandmother}, and a new {uncle} and {aunt}.","grandparents · uncle · aunt","grandfather→grandpa;grandmother→grandma"],
+["Prepare","The new parents have to prepare a new {bed}, new {clothes} and new {toys} for the baby. Everything is new!","new bed · clothes · toys","bed→cot;clothes→shoes;toys→books"]]},
+{t:"Save the World",s:[
+["Question","One day, Simon’s {mother} asked him what he {wanted} to be when he {grows} up.","mother asks · what to be","mother→mum;wanted→hoped;grows→gets"],
+["Dream","“I want to {save} the {world}!” he said.","save the world","save→help;world→Earth"],
+["Mother","His mother {smiled} and said, “I am {glad} to hear that. But can you save your own world first?”","smiled · glad · own world first","smiled→laughed;glad→happy, pleased"],
+["Room","Simon asked, “What do you mean?” She said, “Can you {clean} up your {room}?” “Yes, I can!” said Simon.","clean up your room","clean→tidy;room→desk, bedroom"]]},
+{t:"A Bird and a Cat",s:[
+["Bird","I have a little blue {bird}.","little blue bird","bird→parrot;little→small"],
+["Home","She lives in a {cage} in my {room}, and she is very {beautiful}.","cage · my room · beautiful","cage→nest;beautiful→pretty, lovely"],
+["Song","She likes to {sing}, and she likes me, but she does not like my {cat}. I {enjoy} listening to her song.","sings · enjoy her song","sing→chirp;enjoy→love"],
+["Cat Comes","But when my cat comes into the room, the bird stops singing and is {quiet}.","cat comes · bird quiet","quiet→silent"],
+["Afraid","She sits and {watches} the cat. I think she is {afraid} of the cat.","watches · afraid","watches→looks at;afraid→scared"]]},
+{t:"I Can’t Stop!",s:[
+["Problem","Bob has a {problem}. At {supper} time, his mom puts a lot of {food} on the table.","problem · supper · lots of food","problem→trouble;supper→dinner;food→meals"],
+["Cannot Stop","Bob just cannot {stop} eating, and soon he eats too {much}.","cannot stop · eats too much","stop→quit;too much→a lot"],
+["Ask","He asks, “Mom, what should I {do}?”","what should I do?","do→try"],
+["Solution","His mom says, “From now on, I will make {small} meals. Then you will not {overeat}.” Bob says, “Good {idea}, Mom!”","small meals · good idea","small→little;overeat→eat too much;idea→plan"]]},
+{t:"The First Word",s:[
+["Wonder","I wonder what the first {word} was.","first word","word→sound"],
+["Who","Who {spoke} it, and how long {ago}? Was it “{hello}” or “{goodbye}”?","long ago · hello or goodbye","spoke→said;ago→before;hello→hi;goodbye→bye"],
+["Talking","Since that first word, people have been {talking}. I think I know!","people talking · I know!","talking→speaking"],
+["Ouch","Someone was {cooking} on a {fire}. He {burned} himself and shouted, “{Ouch}!”","cooking · fire · burned · Ouch!","cooking→making food;fire→stove;burned→hurt;Ouch→Help"]]},
+{t:"Uncle John Loves to Ski",s:[
+["Uncle","My Uncle John {loves} to {ski}.","Uncle John · loves skiing","loves→likes;ski→skate"],
+["Winter","In {winter}, he skis on the {snow}. It is his {favourite} sport.","winter · snow · favourite sport","winter→cold season;favourite→best"],
+["Summer","What does he do in {summer}? He likes to ski too! He goes water {skiing}, and it is a lot of {fun}.","summer · water skiing · fun","summer→hot days;fun→exciting"],
+["Ending","Summer or winter, on snow or {water}, Uncle John loves to ski.","snow or water","water→sea, lake"]]},
+{t:"A Young Artist",s:[
+["Maddy","Maddy loves {drawing}. She is only {five} years old, but she can draw many {things}.","loves drawing · five years old","drawing→painting;five→six;things→animals"],
+["Request","One day, her {grandma} asked, “Can you draw me a {happy} {puppy}?”","grandma asks · happy puppy","grandma→grandpa;happy→cute;puppy→kitten"],
+["Guess","Can you {guess} what Maddy {drew}?","guess what she drew","guess→think;drew→painted"],
+["Picture","She drew her grandma sitting in a {chair} and {holding} a puppy. Of course, that was a happy puppy!","grandma in a chair · holding a puppy","chair→sofa;holding→hugging"]]},
+{t:"Taking Turns",s:[
+["Problem","Jake and Anna both want to {ride} the same {tricycle}. What should they do?","one tricycle · two kids","ride→play with;tricycle→bike, scooter"],
+["Plan","Jake says, “Let’s take {turns}.” Anna says, “Good {idea}! You can go {first}. I will {draw} roads with {chalk} while I {wait}.”","take turns · Anna waits · draws with chalk","idea→plan;first→now;wait→watch"],
+["Jake","Jake says, “All right! After my ride, it will be your {turn}.”","after my ride · your turn","turn→go"],
+["Lesson","Taking turns is the best way to have {fun} with friends.","best way · fun with friends","fun→happy"]]},
+{t:"Lights in the House",s:[
+["Mad","My mother was {mad}!","mother was mad","mad→angry, upset"],
+["Lights","She saw that all the {lights} in the house were on, but no one was {home}.","lights on · no one home","lights→fans;home→in"],
+["Save","She said, “When you turn off the lights, you save {energy}, you save {money} and you save the {environment}. Is that {hard} to do?”","save energy · money · environment","energy→power;hard→difficult"],
+["Promise","My {brother} said, “No, of course not.” Mother said, “Please, let’s not {forget} again.”","not hard · do not forget","brother→sister;forget→leave them on"]]},
+{t:"Talking Pen",s:[
+["Gift","Sandy gets a {gift} for her {birthday}. It is a new {book} with a {pen}.","birthday gift · book · pen","gift→present;book→toy;pen→pencil"],
+["Special","But it is not just any pen. It is a {special} pen!","special pen","special→magic"],
+["Talks","When Sandy points it at the words, it starts {talking}. It {reads} the book aloud with her.","points at words · talks · reads aloud","talking→speaking;reads→says"],
+["Mom","Her mom says this is a new {kind} of book. What a {great} way to read!","new kind of book · great way","kind→type;great→fun, wonderful"]]},
+{t:"Why Do We Sleep?",s:[
+["No Sleep","Susan does not want to {sleep}. She says, “I am not {sleepy}.”","does not want to sleep","sleepy→tired"],
+["Mom Says","Mom says, “Lie on your {bed} and close your {eyes}. You will {feel} sleepy {soon}.”","lie on bed · close eyes","bed→sofa;feel→get;soon→in a minute"],
+["Why","Susan asks, “Why do I have to {sleep}?”","why do I sleep?","sleep→rest"],
+["Answer","Mom says, “You need sleep to {rest} your body and {mind}. Then you will be {strong} and {healthy}.”","rest body & mind · strong · healthy","rest→relax;mind→brain;strong→tall"]]},
+{t:"A Day at the Beach",s:[
+["Beach","Today, I am at the {beach} with my {family}.","beach · family","beach→sea;family→friends"],
+["Weather","The {sun} is shining, the sky is blue and the {water} is blue too.","sun · blue sky · blue water","sun→sunshine;water→sea"],
+["Sand","The {sand} is brown and hot.","brown hot sand","sand→beach;hot→warm"],
+["Castle","My {brother} and I make a {castle} in the sand. Dad helps us build it.","sand castle · Dad helps","brother→sister;castle→tower"],
+["Shells","Mom finds {beautiful} {shells} and puts them on top. What a great {day}!","beautiful shells · great day","beautiful→pretty;shells→stones;day→holiday"]]},
+{t:"A Lot of Socks",s:[
+["Think","Have you ever thought about {socks}?","think about socks","socks→shoes, hats"],
+["Old","Did you know that people have worn them for {thousands} of years?","thousands of years","thousands→many"],
+["Warm","Socks keep our {feet} warm and {cozy}. We {wash} them, dry them and sometimes {fix} them.","warm feet · wash · dry · fix","feet→toes;cozy→comfortable;fix→mend"],
+["World","Look at how many socks you have at {home}. Now think about the whole {world}. There must be a lot of feet!","socks at home · whole world","home→school;world→country"]]},
+{t:"Who Likes Cake?",s:[
+["Saturdays","On {Saturdays}, we go to {Grandma}’s house.","Saturdays · Grandma’s house","Saturdays→Sundays;Grandma→Grandpa"],
+["Baking","Today is Saturday, so Grandma and I are {making} a {cake}.","making a cake","making→baking;cake→pie"],
+["Look","The cake is {pink}. We put white {sugar} on top, and four {candles}.","pink cake · sugar · four candles","pink→yellow;sugar→cream;candles→flowers"],
+["Why","Why? It is my little {sister}’s fourth {birthday}!","sister’s 4th birthday","sister→brother;birthday→party"]]},
+{t:"Big Snow Days",s:[
+["Winter","Every {winter}, we have big snow days.","winter · big snow days","winter→December"],
+["Snowing","When it {snows} day and night, there is snow up to the {windows}.","snow day and night","snows→falls;windows→door"],
+["No School","On these days, no one can go to {school} or {work}. So what do we do? We {play}!","no school · no work · play","school→class;work→the office;play→have fun"],
+["At Home","We play games, make hot {chocolate} and {watch} the snow fall. When it stops, we go {outside} and make a big {snowman}.","hot chocolate · snowman","chocolate→tea;watch→see;snowman→snow castle"]]},
+{t:"My Cat",s:[
+["Cat","I have a {cat}. Her {name} is Spot.","cat · named Spot","cat→dog;name→nickname"],
+["Look","She is big and {soft}, and she is {white} with black spots.","big · soft · white with spots","soft→fluffy;white→grey"],
+["Milk","She likes {milk} and drinks it from a {bowl}.","milk · bowl","milk→water;bowl→cup"],
+["Window","She likes to sit at the {window} and look outside. She watches the {birds} in the trees.","window · watches birds","birds→squirrels"],
+["Sleep","Sometimes she {sleeps} all day. Does a cat {dream}? Maybe!","sleeps all day · dream?","sleeps→rests;dream→imagine"]]},
+{t:"My Apple Tree",s:[
+["Planted","When I was {born}, my dad {planted} an apple tree in the {backyard}.","born · dad planted a tree","planted→grew;backyard→garden"],
+["Same Age","Now I am {six} years old, and so is my tree. We have both grown a lot.","six years old · both grown","six→eight"],
+["Taller","I am tall, but my tree is much {taller}. I {love} my apple tree.","tree is taller · love my tree","taller→bigger;love→like"],
+["Apples","It gives me {apples} in the {fall}. It is my special {friend}.","apples in fall · special friend","apples→fruit;fall→autumn;friend→buddy"]]},
+{t:"Day or Night",s:[
+["Sun","Up in the {sky} is the red, hot {sun}. It gives us {light} and keeps us {warm}.","sky · hot sun · light · warm","sky→space;light→energy;warm→comfortable"],
+["Night","At {night}, we cannot see the sun, but it is still {there}. Why?","night · sun still there","night→evening;there→up there"],
+["Earth","The {Earth} moves around the sun. At night, the sun is on the other {side} of the Earth.","Earth moves · other side","Earth→planet;side→part"],
+["Places","When it is dark in {Canada}, the sun is shining in {China}.","dark in Canada · sun in China","Canada→America;China→Vietnam"]]},
+{t:"How Do You Get Around?",s:[
+["Travel","Today, people can travel by {car}, {train}, ship or {airplane}.","car · train · ship · airplane","car→bus, motorbike;train→bike;airplane→plane"],
+["Another","But do you know {another} way to get around? Yes, with {animals}!","another way · animals","another→different;animals→creatures"],
+["Riding","Some people ride {horses}. Some people ride elephants. In some places, people ride {camels}, and in other places, they ride {donkeys}.","horses · elephants · camels · donkeys","horses→ponies;camels→buffaloes;donkeys→oxen"],
+["Many","There are many {ways} to get around.","many ways","ways→kinds"]]},
+{t:"What Do Birds Eat?",s:[
+["Grandpa","My {grandpa} likes {birds}. He often tells me what different birds {eat}.","grandpa · birds","grandpa→grandma;birds→animals;eat→drink"],
+["Food","Birds eat many {things}. Some birds eat {worms}. Some eat {seeds} and nuts.","worms · seeds · nuts","things→foods;worms→insects;seeds→fruit"],
+["Funny","Do you want to know something {funny}? Birds eat many different things, but they do not have {teeth}!","funny fact · no teeth","funny→strange;teeth→hands"],
+["Wonder","How do they {chew} their food? I wonder.","how do they chew?","chew→eat"]]},
+{t:"A Proud Father",s:[
+["Daniel","{Daniel} loves {hockey}. He is a {good} player and plays on the school team.","Daniel · hockey · school team","Daniel→Tom;hockey→football;good→great"],
+["Father","His {father} loves hockey too, but he does not play. He cannot even {skate}!","father · cannot skate","father→dad;skate→play"],
+["Games","But he goes to all of Daniel’s {games}. When people ask about his favourite {sport}, he says, “Hockey!”","goes to all games · says Hockey","games→matches;sport→game"],
+["Proud","He is a very {proud} father.","proud father","proud→happy, glad"]]},
+{t:"Round and Round",s:[
+["Question","One day in class, our {teacher} said, “Cars, {buses}, bicycles, {trains} and even planes are the {same} in one way. Does anyone {know} how?”","cars · buses · trains · same in one way","teacher→headteacher;buses→trucks;same→alike;know→guess"],
+["Apple","Just then, my {apple} fell to the {ground} and started to {roll}.","apple falls · rolls","apple→ball;ground→floor;roll→move"],
+["Answer","“That’s it!” I put up my {hand}. “They all have {wheels}!”","hand up · wheels","hand→arm;wheels→round parts"],
+["Teacher","The teacher said, “Very good! Now please put your apple away.”","very good · put apple away","good→great;away→in the bag"]]}
+];
+const PAL=[
+{n:["#e8955f","#e9bd45","#d79a66","#c9cf5a","#e37d63","#e0a94f"],bg:"#f6ecdc",g:"#e8d9bd",c:"#6b4533",ct:"#fff",ar:"#5a3a28",bd:"#6b4533",in:"#fffaf0",pt:"#5a3a28"},
+{n:["#ff8a1f","#8a3fe0","#ee5fcb","#3b4fd8","#1fa653","#ffd23f"],bg:"#fff1d6",g:"#efc990",c:"#3b4fd8",ct:"#fff",ar:"#222",bd:"#222",in:"#fff",pt:"#3b4fd8"},
+{n:["#8c1d2f","#a3243a","#7a1a2c","#8c1d2f","#a3243a","#7a1a2c"],bg:"#fff0cf",g:"#f2d78a",c:"#fff3d6",ct:"#8c1d2f",ar:"#1f8a70",bd:"#f2b632",in:"#fff3d6",pt:"#8c1d2f"},
+{n:["#f0508a","#f472b6","#ec4899","#f0508a","#f472b6","#ec4899"],bg:"#ffe3c4",g:"#f7c9a0",c:"#fff",ct:"#7a1f3a",ar:"#8a3b45",bd:"#f0508a",in:"#fff",pt:"#7a1f3a"},
+{n:["#2f80ed","#00a9a5","#7b61ff","#ff7a59","#f2b632","#27ae60"],bg:"#e8f4ff",g:"#bcdcf7",c:"#0b3d91",ct:"#fff",ar:"#0b3d91",bd:"#0b3d91",in:"#fff",pt:"#0b3d91"},
+{n:["#e6d3c7","#d9e6c6","#f3d9c0","#cfe3d4","#e6d3c7","#d9e6c6"],bg:"#ffffff",g:"#e9efe2",c:"#9db987",ct:"#2b3a25",ar:"#7da36a",bd:"#9db987",in:"#fff",pt:"#4d6b3f"},
+{n:["#ff6b9d","#ffa94d","#51cf66","#4dabf7","#b197fc","#ffd43b"],bg:"#fff5f9",g:"#ffd3e4",c:"#ae3ec9",ct:"#fff",ar:"#862e9c",bd:"#862e9c",in:"#fff",pt:"#862e9c"}
+];
+const SH=["cloud","blob","arch","wobble"],TT=["pill","badge","blob","plain"],BG=["grid","plain","dots"];
+const SP={1:{sh:"hex",p:5,t:"blob",bg:"plain",dc:-1},2:{sh:"blob",p:0,t:"blob",bg:"plain",dc:3},3:{sh:"blob",p:1,t:"pill",bg:"grid",dc:0},4:{sh:"arch",p:2,t:"badge",bg:"grid",dc:1},5:{sh:"cloud",p:3,t:"plain",bg:"plain",dc:2}};
+const combo=d=>SP[d]||{sh:SH[d%4],p:(d*3)%7,t:TT[(d+1)%4],bg:BG[d%3],dc:(d+1)%4};
+const face=(x,y,s)=>`<circle cx="${x+s*.3}" cy="${y+s*.42}" r="${s*.07}" fill="#222"/><circle cx="${x+s*.7}" cy="${y+s*.42}" r="${s*.07}" fill="#222"/><path d="M${x+s*.34} ${y+s*.64}q${s*.16} ${s*.16} ${s*.32} 0" stroke="#222" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+const flower=(x,y,c)=>`<g transform="translate(${x} ${y})"><g fill="${c}" stroke="#0003" stroke-width="1.5">`+[[0,-13],[12,-4],[8,11],[-8,11],[-12,-4]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="10"/>`).join("")+`</g><circle r="7" fill="#ffd23f"/></g>`;
+const DEC=[
+()=>`<g stroke="#222" stroke-width="3" stroke-linejoin="round"><rect x="10" y="10" width="48" height="48" rx="5" fill="#3cb857"/><path d="M722 58L746 12L770 58Z" fill="#ff8a1f"/><circle cx="34" cy="566" r="26" fill="#ffd23f"/><path d="M728 590L726 552L748 534L770 552L768 590Z" fill="#a77bf0"/></g>`+face(10,10,48)+face(722,24,48)+face(8,540,52)+face(724,546,44),
+()=>`<g fill="none" stroke-width="8" stroke-linecap="round"><path d="M10 64A54 54 0 0 1 64 10" stroke="#d1495b"/><path d="M10 48A38 38 0 0 1 48 10" stroke="#f2b632"/><path d="M10 32A22 22 0 0 1 32 10" stroke="#3a9d6e"/><path d="M770 64A54 54 0 0 0 716 10" stroke="#d1495b"/><path d="M770 48A38 38 0 0 0 732 10" stroke="#f2b632"/><path d="M770 32A22 22 0 0 0 748 10" stroke="#3a9d6e"/></g><circle cx="36" cy="564" r="28" fill="#ef5a1f"/><circle cx="744" cy="564" r="28" fill="#ef5a1f"/>`+[[26,558],[46,558],[734,558],[754,558]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="#fff"/><circle cx="${p[0]}" cy="${p[1]}" r="2" fill="#222"/>`).join(""),
+()=>flower(34,36,"#a06be0")+flower(746,36,"#ef5a8c")+flower(34,566,"#ef5a8c")+`<g transform="translate(740 560)"><circle r="26" fill="#f08a24" stroke="#222" stroke-width="3"/><path d="M-26 0H26M0 -26V26M-18 -18Q-7 0 -18 18M18 -18Q7 0 18 18" stroke="#222" stroke-width="2.4" fill="none"/></g>`,
+()=>`<g fill="#7d9a5f" stroke="#5b7743" stroke-width="2">`+[[16,14,40],[22,40,50],[10,70,60],[764,14,140],[758,40,130],[770,70,120],[16,586,-30],[24,560,-40],[764,586,-150],[756,560,-140]].map(p=>`<ellipse cx="${p[0]}" cy="${p[1]}" rx="6" ry="16" transform="rotate(${p[2]} ${p[0]} ${p[1]})"/>`).join("")+`</g>`
+];
+const $=s=>document.querySelector(s);
+const bold=s=>s.replace(/\{([^}]+)\}/g,"<b>$1</b>");
+const plain=s=>s.replace(/[{}]/g,"");
+const lum=h=>{const n=parseInt(h.slice(1),16);return(.299*(n>>16)+.587*((n>>8)&255)+.114*(n&255))/255};
+function slots(k){
+ if(k===4)return[[25,23],[75,23],[75,77],[25,77]];
+ const rx=k===5?35:36,ry=k===5?36:37,a0=-90,st=360/k,o=[];
+ for(let i=0;i<k;i++){const a=(a0+st*i)*Math.PI/180;o.push([50+rx*Math.cos(a),50+ry*Math.sin(a)])}
+ return o;
+}
+function arrow(p,c,i){
+ const px=p[0]/100*780,py=p[1]/100*600,cx=390,cy=300,dx=px-cx,dy=py-cy;
+ const t0=1/Math.hypot(dx/122,dy/72),u=1/Math.hypot(dx/130,dy/76);
+ const sx=cx+dx*t0,sy=cy+dy*t0,ex=px-dx*u,ey=py-dy*u;
+ const mx=(sx+ex)/2,my=(sy+ey)/2,L=Math.hypot(ex-sx,ey-sy),nx=-(ey-sy)/L,ny=(ex-sx)/L,s=i%2?1:-1,qx=mx+nx*L*.14*s,qy=my+ny*L*.14*s;
+ const an=Math.atan2(ey-qy,ex-qx),h=(d)=>`${ex-16*Math.cos(an+d)} ${ey-16*Math.sin(an+d)}`;
+ return `<path class="ln" style="stroke:${c};stroke-width:3.6" d="M${sx} ${sy}Q${qx} ${qy} ${ex} ${ey}M${h(.5)}L${ex} ${ey}L${h(-.5)}"/>`;
+}
+let N=1,voices=[];
+function render(){
+ N=Math.min(31,Math.max(1,parseInt((location.hash.match(/^#d(\d+)/)||[])[1])||1));
+ if(window.speechSynthesis)speechSynthesis.cancel();setBtn(false);
+ const D=DAYS[N-1],cf=combo(N),P=PAL[cf.p];
+ $("#ttl").textContent="Day "+N+": "+D.t;document.title="Day "+N+" – "+D.t;
+ document.querySelectorAll("#nav a").forEach((a,i)=>a.classList.toggle("on",i==N-1));
+ $("#story").innerHTML=D.s.map(b=>bold(b[1])).join(" ");
+ $("#rows").innerHTML=D.s.map((b,i)=>`<tr><td>${i+1}</td><td>${bold(b[1])}</td><td>${b[3].split(";").map(x=>{const[a,c]=x.split("→");return`<b>${a}</b> → ${c}`}).join("<br>")}</td></tr>`).join("");
+ const m=$("#map"),k=D.s.length,sl=slots(k);
+ m.className="map "+(cf.bg==="plain"?"":cf.bg);
+ m.style.cssText=`--mbg:${P.bg};--mg:${P.g};--bd:${P.bd};--in:${P.in};--ct:${P.ct};--tc:${P.c};--pt:${P.pt}`;
+ let h=`<svg class="ar" viewBox="0 0 780 600" preserveAspectRatio="none" aria-hidden="true">${cf.dc>=0?DEC[cf.dc]():""}${sl.map((s,i)=>arrow(s,P.ar,i)).join("")}</svg>`;
+ sl.forEach((s,i)=>{const fill=P.n[i%6],tx=cf.sh==="cloud"?"#3a1f2b":(lum(fill)>.55?"#2b1a10":"#fff");
+  h+=`<article class="n sh-${cf.sh} v${i%6}" style="--l:${s[0]-15}%;--t:${s[1]-10.5}%;--w:30%;--h:21%;--c:${fill};--tx:${tx}"><h3>${i+1} · ${D.s[i][0]}</h3><p>${D.s[i][2]}</p></article>`});
+ const tt=cf.t==="plain"?"tt-plain":"tt-"+cf.t;
+ h+=`<div class="t ${tt}${D.t.length>16?" long":""}" style="--l:36%;--t:40%;--w:28%;--h:20%"><small>Day ${N} · Mind Map</small><strong>${D.t}</strong></div>`;
+ m.innerHTML=h;
+}
+/* audio */
+const syn=window.speechSynthesis;
+function setBtn(on){$("#play").textContent=on?"↻ Nghe lại":"▶ Nghe";$("#pause").textContent="⏸"}
+function loadVoices(){
+ if(!syn){$("#am").textContent="Trình duyệt này chưa hỗ trợ đọc giọng nói.";return}
+ voices=syn.getVoices().filter(v=>/^en/i.test(v.lang));
+ const sel=$("#voice"),cur=sel.value;
+ sel.innerHTML=voices.length?voices.map((v,i)=>`<option value="${i}">${v.name} (${v.lang})</option>`).join(""):"<option value=\"-1\">Chưa có giọng tiếng Anh</option>";
+ if(sel.dataset.set&&cur)sel.value=cur;else{const i=voices.findIndex(v=>/en[-_]US/i.test(v.lang));if(i>=0)sel.value=i}
+ $("#am").textContent=voices.length?"Chọn giọng (Anh/Mỹ/…) và tốc độ rồi bấm Nghe. Danh sách giọng phụ thuộc thiết bị của em.":"Máy chưa cài giọng tiếng Anh. Thử mở bằng Chrome/Safari hoặc cài thêm giọng trong cài đặt thiết bị.";
+}
+function speak(){
+ if(!syn)return;syn.cancel();
+ const parts=plain($("#story").textContent).replace(/([.!?]+[”"]?)\s+/g,"$1|").split("|").filter(Boolean),v=voices[+$("#voice").value];
+ parts.forEach((p,i)=>{const u=new SpeechSynthesisUtterance(p.trim());u.lang=v?v.lang:"en-US";if(v)u.voice=v;u.rate=+$("#rate").value;if(i===parts.length-1)u.onend=()=>setBtn(false);syn.speak(u)});
+ setBtn(true);
+}
+$("#play").onclick=speak;
+$("#pause").onclick=()=>{if(!syn)return;if(syn.paused){syn.resume();$("#pause").textContent="⏸"}else{syn.pause();$("#pause").textContent="▶"}};
+$("#stop").onclick=()=>{if(syn)syn.cancel();setBtn(false)};
+$("#voice").onchange=e=>{e.target.dataset.set=1};
+if(syn){loadVoices();syn.onvoiceschanged=loadVoices}else loadVoices();
+$("#nav").innerHTML=DAYS.map((d,i)=>`<a href="#d${i+1}" title="${d.t}">${i+1}</a>`).join("");
+addEventListener("hashchange",()=>{render();scrollTo(0,0)});
+render();
+</script>
+</body>
+</html>

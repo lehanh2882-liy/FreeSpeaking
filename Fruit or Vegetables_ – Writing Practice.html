@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fruit or Vegetables? – Writing Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Abril+Fatface&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6efe7;--card:rgba(255,255,255,.86);--ink:#2b1d14;--soft:#6f5f53;--line:#cdb9ab;--gold:#b99a62;--taupe:#a8998c;--pill:#d9c5b8;--ok:#5f7f4f;--bad:#b4533f;--inbg:#fffdf9;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241c17;--card:rgba(48,38,32,.88);--ink:#f3e9de;--soft:#c2b2a4;--line:#5a4a3f;--pill:#4a3b32;--inbg:#2f251f;--ok:#9cc486;--bad:#e58a76}}
+:root[data-theme="dark"]{--bg:#241c17;--card:rgba(48,38,32,.88);--ink:#f3e9de;--soft:#c2b2a4;--line:#5a4a3f;--pill:#4a3b32;--inbg:#2f251f;--ok:#9cc486;--bad:#e58a76}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 Comfortaa,Arial,sans-serif}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;opacity:.4;filter:blur(7px)}
+.bg svg{position:absolute;width:900px;max-width:none}
+main{max-width:780px;margin:0 auto;padding:20px 14px 60px}
+h1{font:700 clamp(20px,4.6vw,30px)/1.25 Comfortaa,Arial,sans-serif;text-transform:uppercase;text-align:center;background:var(--pill);border-radius:40px;padding:14px 22px;margin:8px 0 14px;letter-spacing:.02em}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.bar input[type=text]{flex:1;min-width:160px}
+input,textarea{font:inherit;color:var(--ink);background:var(--inbg);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+button{font:700 14px Comfortaa,Arial,sans-serif;background:var(--gold);color:#fff;border:0;border-radius:24px;padding:9px 18px;cursor:pointer}
+button.alt{background:var(--taupe)}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 20px 18px;margin:34px 0;break-inside:avoid}
+.num{position:absolute;top:-24px;left:18px;width:50px;height:50px;border-radius:50%;background:var(--gold);color:#fff;font:400 24px/50px 'Abril Fatface',Georgia,serif;text-align:center}
+.card:nth-of-type(even) .num{background:var(--taupe)}
+h2{font:700 20px/1.3 Comfortaa,Arial,sans-serif;margin:0 0 4px 52px}
+.tip{color:var(--soft);font-size:14.5px;margin:0 0 12px 52px}
+.words{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.words span{background:var(--pill);border-radius:20px;padding:1px 12px;font-size:15px}
+.para{line-height:2.3}
+.bl{width:118px;padding:1px 8px;border:0;border-bottom:2px solid var(--gold);border-radius:0;background:transparent;text-align:center}
+.ok{border-color:var(--ok)!important;color:var(--ok)}
+.bad{border-color:var(--bad)!important;color:var(--bad)}
+.q{margin:12px 0}
+.q input{width:100%;margin-top:4px}
+textarea{width:100%;min-height:150px;line-height:1.9;background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 32px);background-color:transparent}
+.starters{color:var(--soft);font-style:italic;margin:6px 0}
+.msg{margin:10px 0 0;font-size:15px;min-height:20px}
+.sc{font-weight:600}
+.ill{display:block;width:100%;max-width:420px;margin:10px auto 0}
+footer{text-align:center;color:var(--soft);font-size:14px;margin-top:20px}
+@media print{.no-print{display:none!important}.bg{opacity:.18}body{font-size:14px;background:#fff}.card{margin:28px 0;background:#fff}@page{margin:12mm}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<radialGradient id="ga" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#e0806a"/><stop offset=".6" stop-color="#b8402f"/><stop offset="1" stop-color="#7d2a20"/></radialGradient><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3dc6e"/><stop offset="1" stop-color="#d4a92f"/></linearGradient><linearGradient id="gc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0a65a"/><stop offset="1" stop-color="#c96f2a"/></linearGradient><radialGradient id="gp" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#c9de8f"/><stop offset="1" stop-color="#6f9040"/></radialGradient><symbol id="food" viewBox="0 0 300 130">
+<path d="M10 118h280" stroke="#8a6b4f" stroke-width="10" stroke-linecap="round"/>
+<path d="M40 40c10 50 60 75 120 60-40 4-80-20-105-62z" fill="url(#gb)" stroke="#8a6b4f" stroke-width="3"/>
+<path d="M40 40c-4-10-2-18 6-24" stroke="#8a6b4f" stroke-width="6" stroke-linecap="round" fill="none"/>
+<circle cx="170" cy="78" r="34" fill="url(#ga)" stroke="#8a6b4f" stroke-width="3"/>
+<ellipse cx="158" cy="66" rx="7" ry="11" fill="#fff" opacity=".35" transform="rotate(25 158 66)"/><path d="M170 46c0-12 6-20 16-22" stroke="#6f7f52" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M214 36l44 72-60-8z" fill="url(#gc)" stroke="#8a6b4f" stroke-width="3"/>
+<path d="M214 36c-6-16 0-26 10-30M214 36c8-14 20-18 30-14" stroke="#7d9060" stroke-width="6" fill="none" stroke-linecap="round"/>
+<circle cx="100" cy="106" r="9" fill="url(#gp)"/><circle cx="118" cy="110" r="9" fill="url(#gp)"/><circle cx="82" cy="108" r="8" fill="url(#gp)"/>
+<path d="M10 92c8-8 22-8 28 2l-12 22c-10 0-18-8-16-24z" fill="url(#ga)" stroke="#8a6b4f" stroke-width="2"/>
+</symbol></defs></svg>
+<div class="bg" aria-hidden="true">
+<svg viewBox="0 0 300 130" style="left:-120px;top:55%"><use href="#food"/></svg>
+<svg viewBox="0 0 300 130" style="right:-300px;top:8%;transform:scale(.7)"><use href="#food"/></svg>
+</div>
+<main>
+<h1>Fruit or Vegetables?<br><small style="font-size:.55em">Writing Practice</small></h1>
+<div class="bar no-print">
+<input type="text" id="name" placeholder="Your name / Tên em" aria-label="Name">
+<button id="play" class="alt">🎧 Listen</button>
+<button id="print">🖨 Print / PDF</button>
+</div>
+<p class="print-only" style="display:none">Name: ______________________ Date: ______________</p>
+
+<section class="card"><div class="num">01</div>
+<h2>Rewrite &amp; Fill in</h2>
+<p class="tip">Read the new text. Fill in the missing words. · Điền từ còn thiếu vào chỗ trống.</p>
+<div class="words"><span>vegetables</span><span>fruit</span><span>lunch</span><span>peas</span><span>beans</span><span>carrots</span><span>opposite</span><span>food</span><span>hungry</span><span>good</span></div>
+<p class="para" id="p1"></p>
+<svg class="ill" viewBox="0 0 300 130" aria-hidden="true"><use href="#food"/></svg>
+<div class="no-print"><button id="c1">Check</button> <span class="msg sc" id="m1"></span></div>
+</section>
+
+<section class="card"><div class="num">02</div>
+<h2>Build the Sentence</h2>
+<p class="tip">Put the words in the correct order. Start with a capital letter and end with a full stop. · Sắp xếp các từ thành câu đúng.</p>
+<div id="p2"></div>
+<div class="no-print"><button id="c2">Check</button> <span class="msg sc" id="m2"></span></div>
+</section>
+
+<section class="card"><div class="num">03</div>
+<h2>My Own Paragraph</h2>
+<p class="tip">Do you like fruit or vegetables? Write 4–6 sentences about you. · Viết đoạn văn về chính em.</p>
+<p class="starters">I like … but I do not like … · At lunch, I eat … · My friend … likes … · I think all food is …</p>
+<textarea id="w" aria-label="My paragraph"></textarea>
+<div class="no-print"><button id="c3">Check my writing</button> <span class="msg" id="m3"></span></div>
+</section>
+
+<div class="no-print" style="text-align:center"><button id="copy">📋 Copy result for teacher / Sao chép gửi cô</button><p class="msg" id="mc"></p></div>
+<footer>@writingpractice</footer>
+</main>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const norm=s=>s.toLowerCase().replace(/[’']/g,"'").replace(/[^a-z' ]/g,' ').replace(/\s+/g,' ').trim();
+const P="Mac loves {vegetables}, but he does not enjoy {fruit}. For {lunch}, he has {peas|beans|carrots}, {peas|beans|carrots} and {peas|beans|carrots}. Kim is Mac’s {opposite}. She likes apples and bananas, but she does not eat green food. Their friend Rachel says, “In some places, people have no {food} and feel {hungry}.” Then she adds, “Remember this, and you will see that all food is {good}!”";
+$('#p1').innerHTML=P.replace(/\{([^}]+)\}/g,'<input class="bl" data-a="$1" size="9" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="blank">');
+const Q=[["likes / Mac / vegetables","Mac likes vegetables"],["does / not / Kim / like / vegetables","Kim does not like vegetables"],["eats / At lunch, / peas / Mac","At lunch Mac eats peas|Mac eats peas at lunch"],["is / food / all / good","All food is good"]];
+$('#p2').innerHTML=Q.map((q,i)=>`<div class="q">${i+1}. <span class="words" style="display:inline-flex;margin:0">${q[0].split(' / ').map(w=>`<span>${w}</span>`).join('')}</span><input class="sb" data-a="${q[1]}" autocomplete="off" aria-label="sentence ${i+1}"></div>`).join('');
+let S={a:'-',b:'-'};
+function grade(sel,fn){let ok=0;const el=$$(sel);el.forEach(i=>{const v=norm(i.value),good=fn(i,v);i.classList.toggle('ok',good);i.classList.toggle('bad',!good&&v!=='');if(good)ok++});return ok+'/'+el.length}
+$('#c1').onclick=()=>{S.a=grade('.bl',(i,v)=>i.dataset.a.split('|').includes(v));$('#m1').textContent='Score: '+S.a+(S.a.split('/')[0]===S.a.split('/')[1]?' ⭐ Great job!':'')};
+$('#c2').onclick=()=>{S.b=grade('.sb',(i,v)=>i.dataset.a.split('|').map(norm).includes(v));$('#m2').textContent='Score: '+S.b+(S.b.split('/')[0]===S.b.split('/')[1]?' ⭐ Great job!':'')};
+$('#c3').onclick=()=>{const t=$('#w').value.trim(),w=t?t.split(/\s+/).length:0,ss=t.split(/(?<=[.!?])\s+/).filter(Boolean),tips=[];
+if(w<30)tips.push('Write more: '+w+'/30 words.');
+if(ss.length<4)tips.push('Write at least 4 sentences.');
+if(ss.some(s=>/^[a-z]/.test(s)))tips.push('Start every sentence with a capital letter.');
+if(/(^|[\s,])i(\s|,|\.|$)/.test(t))tips.push('Write “I” with a capital letter.');
+if(t&&!/[.!?]$/.test(t))tips.push('End with a full stop.');
+if(!/\bbut\b/i.test(t))tips.push('Try using “but”.');
+$('#m3').innerHTML=w?(tips.length?'💡 '+tips.join('<br>💡 '):'⭐ Well done! Your paragraph looks great.'):'Write something first.'};
+const AU="https://drive.google.com/file/d/1SFLJzAmXNcg8V7GcfFlVsxISd-BcdSUv/view?usp=drive_link";
+$('#play').onclick=()=>window.open(AU,'_blank','noopener');
+$('#print').onclick=()=>{try{window.print()}catch(e){}$('#mc').textContent='Nếu hộp thoại in không hiện: mở trang ở tab riêng rồi nhấn Ctrl+P (máy tính), hoặc dùng Chia sẻ → In (điện thoại).'};
+$('#copy').onclick=async()=>{const t=`Name: ${$('#name').value||'-'}\nEx1: ${S.a}\nEx2: ${S.b}\nEx3:\n${$('#w').value}`;
+try{await navigator.clipboard.writeText(t);$('#mc').textContent='Copied ✓'}catch(e){const a=document.createElement('textarea');a.value=t;document.body.append(a);a.select();try{document.execCommand('copy');$('#mc').textContent='Copied ✓'}catch(_){$('#mc').textContent='Could not copy.'}a.remove()}};
+window.addEventListener('beforeprint',()=>$$('.print-only').forEach(e=>e.style.display='block'));
+window.addEventListener('afterprint',()=>$$('.print-only').forEach(e=>e.style.display='none'));
+</script>
+</body>
+</html>

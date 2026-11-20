@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One Story A Day – Writing Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Abril+Fatface&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6efe7;--card:rgba(255,255,255,.86);--ink:#2b1d14;--soft:#6f5f53;--line:#cdb9ab;--gold:#b99a62;--taupe:#a8998c;--pill:#d9c5b8;--ok:#5f7f4f;--bad:#b4533f;--inbg:#fffdf9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241c17;--card:rgba(48,38,32,.88);--ink:#f3e9de;--soft:#c2b2a4;--line:#5a4a3f;--pill:#4a3b32;--inbg:#2f251f;--ok:#9cc486;--bad:#e58a76}}
+:root[data-theme="dark"]{--bg:#241c17;--card:rgba(48,38,32,.88);--ink:#f3e9de;--soft:#c2b2a4;--line:#5a4a3f;--pill:#4a3b32;--inbg:#2f251f;--ok:#9cc486;--bad:#e58a76}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 Comfortaa,Arial,sans-serif}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;opacity:.45;filter:blur(8px);background:radial-gradient(circle at 15% 20%,var(--pill),transparent 45%),radial-gradient(circle at 85% 75%,var(--gold),transparent 45%)}
+.bg b{position:absolute;font-size:300px;font-weight:400;right:-40px;bottom:-30px;opacity:.5}
+main{max-width:780px;margin:0 auto;padding:20px 14px 60px}
+h1{font:700 clamp(20px,4.6vw,30px)/1.25 Comfortaa,Arial,sans-serif;text-transform:uppercase;text-align:center;background:var(--pill);border-radius:40px;padding:14px 22px;margin:8px 0 14px}
+.nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:14px}
+.nav a{width:34px;height:34px;line-height:34px;text-align:center;border-radius:50%;background:var(--pill);color:var(--ink);text-decoration:none;font-size:14px;font-weight:700}
+.nav a.on{background:var(--gold);color:#fff}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+.bar input{flex:1;min-width:160px}
+input,textarea{font:inherit;color:var(--ink);background:var(--inbg);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+button{font:700 14px Comfortaa,Arial,sans-serif;background:var(--gold);color:#fff;border:0;border-radius:24px;padding:9px 18px;cursor:pointer}
+button.alt{background:var(--taupe)}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 20px 18px;margin:34px 0;break-inside:avoid}
+.num{position:absolute;top:-24px;left:18px;width:50px;height:50px;border-radius:50%;background:var(--gold);color:#fff;font:400 24px/50px 'Abril Fatface',Georgia,serif;text-align:center}
+.card:nth-of-type(even) .num{background:var(--taupe)}
+h2{font:700 20px/1.3 Comfortaa,Arial,sans-serif;margin:0 0 4px 52px}
+.tip{color:var(--soft);font-size:13.5px;margin:0 0 12px 52px}
+.words{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.words span{background:var(--pill);border-radius:20px;padding:1px 12px;font-size:14px}
+.para{line-height:2.3}
+.bl{width:118px;padding:1px 8px;border:0;border-bottom:2px solid var(--gold);border-radius:0;background:transparent;text-align:center}
+.ok{border-color:var(--ok)!important;color:var(--ok)}
+.bad{border-color:var(--bad)!important;color:var(--bad)}
+.q{margin:12px 0}.q input{width:100%;margin-top:4px}
+textarea{width:100%;min-height:150px;line-height:2;background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 32px);background-color:transparent}
+.starters{color:var(--soft);margin:6px 0;font-size:14px}
+.msg{margin:10px 0 0;font-size:14px;min-height:20px}.sc{font-weight:700}
+.ill{width:130px;height:130px;margin:10px auto 0;border-radius:50%;background:var(--pill);display:flex;align-items:center;justify-content:center;font-size:72px;line-height:1}
+footer{text-align:center;color:var(--soft);font-size:13px;margin-top:20px}
+.po{display:none}
+@media print{.no-print{display:none!important}.po{display:block}.bg{opacity:.18}body{font-size:14px;background:#fff}.card{margin:28px 0;background:#fff}@page{margin:12mm}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><b id="bge"></b></div>
+<main>
+<h1 id="ttl"></h1>
+<div class="nav no-print" id="nav"></div>
+<div class="bar no-print">
+<input type="text" id="name" placeholder="Your name / Tên em" aria-label="Name">
+<button id="play" class="alt"></button>
+<button id="print">🖨 Print / PDF</button>
+</div>
+<p class="msg no-print" id="ah"></p>
+<p class="po">Name: ______________________ Date: ______________</p>
+
+<section class="card"><div class="num">01</div>
+<h2>Rewrite &amp; Fill in</h2>
+<p class="tip">Read the text. Fill in the missing words. · Điền từ còn thiếu vào chỗ trống.</p>
+<div class="words" id="bank"></div>
+<p class="para" id="p1"></p>
+<div class="ill" id="emo" aria-hidden="true"></div>
+<div class="no-print"><button id="c1">Check</button> <span class="msg sc" id="m1"></span></div>
+</section>
+
+<section class="card"><div class="num">02</div>
+<h2>Build the Sentence</h2>
+<p class="tip">Put the words in order. Start with a capital letter and end with a full stop. · Sắp xếp các từ thành câu đúng.</p>
+<div id="p2"></div>
+<div class="no-print"><button id="c2">Check</button> <span class="msg sc" id="m2"></span></div>
+</section>
+
+<section class="card"><div class="num">03</div>
+<h2>My Own Paragraph</h2>
+<p class="tip" id="q3"></p>
+<p class="starters">Start with: I like … · I have … · My … is … · I think …  (4–6 sentences)</p>
+<textarea id="w" aria-label="My paragraph"></textarea>
+<div class="no-print"><button id="c3">Check my writing</button> <span class="msg" id="m3"></span></div>
+</section>
+
+<div class="no-print" style="text-align:center"><button id="copy">📋 Copy result for teacher / Sao chép gửi cô</button><p class="msg" id="mc"></p></div>
+<footer>One Story A Day · Writing Practice</footer>
+</main>
+<script>
+const FOLDER="https://drive.google.com/drive/folders/1axhb5gHiAfCgiW0bZY87xQZHRGObsPMQ?usp=drive_link";
+const AUD={}; // {ngày: link file nghe riêng}
+const D=[
+["The Sky Is Blue!","🌤️","My uncle sends me a {photo}. It shows a {blue} sky and white {clouds}. My uncle is very {happy}. His city sky is often {grey} because there are too many {cars}.","What colour is the sky today? Describe it."],
+["Fruit or Vegetables?","🍎","Mac loves {vegetables}, but he does not enjoy {fruit}. For {lunch}, he has {peas|beans|carrots}, {peas|beans|carrots} and {peas|beans|carrots}. Kim is Mac’s {opposite}. She likes apples and bananas, but she does not eat green food. Their friend Rachel says, “In some places, people have no {food} and feel {hungry}.” Then she adds, “Remember this, and you will see that all food is {good}!”","Do you like fruit or vegetables? Write about you."],
+["Report Card","📝","Pat left his {office} and went to the next {room}. He told his friends that his {mother} still has his {kindergarten} report card. It said, “Stop visiting your {neighbours}!”","What do you do at school? Write about it."],
+["Tall Tom","📏","Tom is very {tall}. He is taller than all the kids and even our {teacher}. We played a {game} called Reach High. Tom held up his {hand}, but nobody could {reach} it.","Who is tall in your family? Write about this person."],
+["Basketball Is Fun","🏀","My {uncle} gave me a {basketball} for my {birthday}. He showed me how to {bounce} it. With {practice}, I could bounce it one {hundred} times.","What sport do you like? Write about it."],
+["A Picture for Dad","🎨","I {painted} a picture of my {dad} for his {birthday}. I was {scared} because it was not very good. But he {liked} it and put it on the {wall}.","What can you give to your dad or mum on a birthday?"],
+["Many Kinds of Milk","🥛","Joey’s teacher says that {milk} helps us grow {strong}. The children know it comes from {cows}. But people also drink milk from {sheep}, {horses} and {camels}.","Do you like milk? What do you drink every day?"],
+["Colours","🌈","One day, Red and Blue argued about the best {colour}. Red wanted all the {attention}. Blue said, “I am the colour of the {sea}!” Then red {spilled} onto blue and {purple} appeared.","What is your favourite colour? Why?"],
+["A Windy Christmas","🎄","This year, Christmas was {different}. There was no {snow}, but it was very {windy}. The wind was so strong that I had to {run} home. Maybe it pushed {Santa} home too!","What is the weather like today? Write about it."],
+["Everything Is New!","👶","A new {baby} brings new {parents} and new grandparents, uncles and {aunts}. The parents must get a new {bed}, new {clothes} and new {toys}. Everything is {new}!","Who is in your family? Write about them."],
+["Save the World","🌍","Simon’s {mother} asked what he wanted to do when he {grows} up. He said, “I want to save the {world}!” She smiled and said, “First, {clean} your {room}.”","What do you want to be when you grow up?"],
+["A Bird and a Cat","🐦","I have a little blue {bird} in a {cage}. She likes to {sing}, but she does not like my {cat}. When the cat comes in, she stops singing and is {quiet}.","Do you have a pet? Write about it."],
+["I Can’t Stop!","🍽️","At {supper}, Bob’s mom puts a lot of {food} on the table. Bob cannot stop {eating}. His mom will make {small} {meals} from now on.","What do you eat for dinner? Write about it."],
+["The First Word","💬","I wonder what the first {word} was. Was it “hello” or “goodbye”? Maybe someone was cooking on a {fire}. He {burned} himself and said, “Ouch!”","What is your favourite English word? Why?"],
+["Uncle John Loves to Ski","⛷️","Uncle John {loves} to ski. In {winter}, he skis on {snow}. In {summer}, he goes water {skiing}. It is his favourite {sport}.","What do you do in summer? Write about it."],
+["A Young Artist","🖍️","Maddy is {five} years old and loves {drawing}. Her {grandma} asked for a happy {puppy}. Maddy drew grandma in a {chair} holding a puppy.","What do you like to draw? Write about it."],
+["Taking Turns","🚲","Jake and Anna both want the same {tricycle}. Jake says, “Let’s take {turns}.” Anna lets Jake go {first} and she draws roads with {chalk}.","How do you share with your friends?"],
+["Lights in the House","💡","My mother was {mad}. All the {lights} were on, but nobody was home. When we turn them off, we save {energy} and {money}. We must not {forget} again.","What do you do to save energy at home?"],
+["Talking Pen","🖊️","Sandy gets a new {book} for her {birthday}. It comes with a special {pen}. When she points it at the {words}, it starts {talking}. It reads the book {aloud} with her.","What is your favourite book? Write about it."],
+["Why Do We Sleep?","😴","Susan is not {sleepy}. Mom says, “Close your {eyes}.” We sleep to {rest} our body and {mind}. Then we will be strong and {healthy}.","What time do you go to bed? Write about your night."],
+["A Day at the Beach","🏖️","Today I am at the {beach} with my {family}. The sun is shining and the {sand} is hot. We build a {castle}, and Mom finds {shells} for it. It is a great {day}!","Where do you go on holiday? Write about it."],
+["A Lot of Socks","🧦","Socks are very {old}. People have worn them for {thousands} of years. They keep our {feet} warm. We {wash} them and {dry} them, and sometimes we {fix} them.","What socks do you like? Write about them."],
+["Who Likes Cake?","🎂","On Saturdays, we visit {Grandma}. Today we make a pink {cake} with white {sugar} and four {candles}. It is my little {sister}’s fourth {birthday}!","What do you do on Saturdays? Write about it."],
+["Big Snow Days","⛄","In winter, it {snows} day and night. No one goes to {school} or work. We play {games}, drink hot {chocolate} and watch the snow. Then we make a big {snowman}!","What do you do on a snowy day?"],
+["My Cat","🐱","I have a {cat} called Spot. She is big, soft and {white} with black spots. She likes {milk}. She sits at the {window} and watches the {birds}.","Describe an animal you like."],
+["My Apple Tree","🌳","When I was {born}, my dad {planted} an apple tree. Now I am {six} and so is my tree. It is taller than me. It gives me {apples} in the {fall}.","Do you have a tree or a plant? Write about it."],
+["Day or Night","☀️","The {sun} is red, hot and in the {sky}. It gives us {light}. At {night}, we cannot see it because the {Earth} moves around it.","What do you do in the day and at night?"],
+["How Do You Get Around?","🐘","People can travel by {car}, {train}, ship or {airplane}. Some people also ride {animals}. They ride {horses}, {elephants} and {camels}.","How do you go to school? Write about it."],
+["What Do Birds Eat?","🦜","My {grandpa} likes {birds}. He tells me what they {eat}. Some birds eat {worms}. Some eat {seeds} and {nuts}.","What do you eat for breakfast? Write about it."],
+["A Proud Father","🏒","{Daniel} loves hockey and plays for the school {team}. His father cannot {skate}, but he goes to every {game}. He says his favourite sport is {hockey}.","Who comes to watch you? Write about this person."],
+["Round and Round","🚌","Our teacher asked how cars, {buses} and {trains} are the same. Then my {apple} fell and started to {roll}. I said, “They all have {wheels}!”","What has wheels? Write about it."]];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const norm=s=>s.toLowerCase().replace(/[’']/g,"'").replace(/[^a-z' ]/g,' ').replace(/\s+/g,' ').trim();
+function shuf(a,seed){a=[...a];let s=seed*9301+49297;for(let i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;const j=Math.floor(s/233280*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+let S,N=1;
+$('#nav').innerHTML=D.map((d,i)=>`<a href="#d${i+1}" title="${d[0]}">${i+1}</a>`).join('');
+function render(){
+N=Math.min(31,Math.max(1,parseInt((location.hash.match(/^#d(\d+)/)||[])[1])||1));
+const [t,e,x,q]=D[N-1];S={a:'-',b:'-'};
+$('#ttl').textContent='Day '+N+': '+t;document.title='Day '+N+' – '+t;
+$$('#nav a').forEach((a,i)=>a.classList.toggle('on',i==N-1));
+$('#emo').textContent=e;$('#bge').textContent=e;
+$('#p1').innerHTML=x.replace(/\{([^}]+)\}/g,'<input class="bl" data-a="$1" size="9" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="blank">');
+const ws=[...new Set([...x.matchAll(/\{([^}]+)\}/g)].flatMap(m=>m[1].split('|')))];
+$('#bank').innerHTML=shuf(ws,N).map(w=>`<span>${w}</span>`).join('');
+const plain=x.replace(/[{}“”"]/g,''),ss=plain.split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(Boolean);
+let ch=ss.filter(s=>{const c=s.split(/\s+/).length;return c>=3&&c<=8});
+if(ch.length<3)ch=ss.filter(s=>s.split(/\s+/).length<=11);
+ch=ch.slice(0,4);
+$('#p2').innerHTML=ch.map((s,i)=>{const w=s.replace(/[.!?,]/g,'').split(/\s+/).map((v,k)=>k==0&&v!='I'?v[0].toLowerCase()+v.slice(1):v);let r=shuf(w,N*10+i),k=1;while(r.join()==w.join()&&k<5)r=shuf(w,N*10+i+k++);
+return `<div class="q">${i+1}. <span class="words" style="display:inline-flex;margin:0">${r.map(v=>`<span>${v}</span>`).join('')}</span><input class="sb" data-a="${s}" autocomplete="off" aria-label="sentence ${i+1}"></div>`}).join('');
+$('#q3').textContent=q;$('#w').value='';
+['m1','m2','m3','mc'].forEach(i=>$('#'+i).textContent='');
+$('#play').textContent='🎧 Listen · file '+N;
+$('#ah').textContent=AUD[N]?'':'Mở thư mục nghe và chọn file số '+N+'.';
+}
+function grade(sel,fn){let ok=0;const el=$$(sel);el.forEach(i=>{const v=norm(i.value),g=fn(i,v);i.classList.toggle('ok',g);i.classList.toggle('bad',!g&&v!=='');if(g)ok++});return ok+'/'+el.length}
+const full=s=>{const[a,b]=s.split('/');return a===b?' ⭐ Great job!':''};
+$('#c1').onclick=()=>{S.a=grade('.bl',(i,v)=>i.dataset.a.split('|').includes(v));$('#m1').textContent='Score: '+S.a+full(S.a)};
+$('#c2').onclick=()=>{S.b=grade('.sb',(i,v)=>norm(i.dataset.a)==v);$('#m2').textContent='Score: '+S.b+full(S.b)};
+$('#c3').onclick=()=>{const t=$('#w').value.trim(),w=t?t.split(/\s+/).length:0,ss=t.split(/(?<=[.!?])\s+/).filter(Boolean),tips=[];
+if(w<30)tips.push('Write more: '+w+'/30 words.');
+if(ss.length<4)tips.push('Write at least 4 sentences.');
+if(ss.some(s=>/^[a-z]/.test(s)))tips.push('Start every sentence with a capital letter.');
+if(/(^|[\s,])i(\s|,|\.|$)/.test(t))tips.push('Write “I” with a capital letter.');
+if(t&&!/[.!?]$/.test(t))tips.push('End with a full stop.');
+$('#m3').innerHTML=w?(tips.length?'💡 '+tips.join('<br>💡 '):'⭐ Well done! Your paragraph looks great.'):'Write something first.'};
+$('#play').onclick=()=>window.open(AUD[N]||FOLDER,'_blank','noopener');
+$('#print').onclick=()=>{try{window.print()}catch(e){}$('#mc').textContent='Nếu hộp thoại in không hiện: mở trang ở tab riêng rồi nhấn Ctrl+P.'};
+$('#copy').onclick=async()=>{const t=`Name: ${$('#name').value||'-'}\nDay ${N}: ${D[N-1][0]}\nEx1: ${S.a}\nEx2: ${S.b}\nEx3:\n${$('#w').value}`;
+try{await navigator.clipboard.writeText(t);$('#mc').textContent='Copied ✓'}catch(e){const a=document.createElement('textarea');a.value=t;document.body.append(a);a.select();try{document.execCommand('copy');$('#mc').textContent='Copied ✓'}catch(_){$('#mc').textContent='Could not copy.'}a.remove()}};
+addEventListener('hashchange',()=>{render();scrollTo(0,0)});render();
+</script>
+</body>
+</html>
