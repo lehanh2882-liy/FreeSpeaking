@@ -1,0 +1,33 @@
+name: Auto Update Index
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Generate file list
+        run: |
+          python3 -c '
+          import os, json
+          files = [f for f in os.listdir(".") if f.endswith(".html") and f != "index.html"]
+          files.sort()
+          with open("files.json", "w", encoding="utf-8") as out:
+              json.dump(files, out, ensure_ascii=False, indent=2)
+          '
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@://github.com"
+          git add files.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update file list" && git push)
